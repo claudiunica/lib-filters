@@ -130,6 +130,41 @@
           }
         }
       }
+    },
+    "filters": {
+      "root": "projects/filters",
+      "sourceRoot": "projects/filters/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/filters/tsconfig.lib.json",
+            "project": "projects/filters/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/filters/src/test.ts",
+            "tsConfig": "projects/filters/tsconfig.spec.json",
+            "karmaConfig": "projects/filters/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/filters/tsconfig.lib.json",
+              "projects/filters/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "table-app"
